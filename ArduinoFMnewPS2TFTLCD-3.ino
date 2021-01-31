@@ -244,7 +244,7 @@ void loop() {
 
 
 
-        if (midi_no == 127) {
+        if (midi_no == 128) {
 
 
           if ( (mode == EDIT) || (mode == PLAY)) {
@@ -424,15 +424,15 @@ void loop() {
                         break;
                       case 13://Del
                         chord_velo = 40;
-                        led_level(0);
+                       // led_level(0);
                         break;
                       case 14:  //End
                         chord_velo = 60;
-                        led_level(1);
+                       // led_level(1);
                         break;
                       case 15:  //PgDn
                         chord_velo = 80;
-                        led_level(2);
+                       // led_level(2);
                         break;
                       case 16:  //Insert
                         chord_offs = -12;
@@ -622,30 +622,30 @@ void led_level(uint8_t level) {
   level &= 3;
 
 
-  switch (level) {
-    case 0:
-      send_data(0xed);
-      send_data(0);
-      break;
-    case 1:
-      send_data(0xed);
-      send_data(0x01);
-      break;
-    case 2:
-      send_data(0xed);
-      send_data(0x05);
-      break;
-    case 3:
-      send_data(0xed);
-      send_data(0x07);
-      break;
-
-    default:
-      send_data(0xed);
-      send_data(0);
-      break;
-
-  }
+//  switch (level) {
+//    case 0:
+//      send_data(0xed);
+//      send_data(0);
+//      break;
+//    case 1:
+//      send_data(0xed);
+//      send_data(0x01);
+//      break;
+//    case 2:
+//      send_data(0xed);
+//      send_data(0x05);
+//      break;
+//    case 3:
+//      send_data(0xed);
+//      send_data(0x07);
+//      break;
+//
+//    default:
+//      send_data(0xed);
+//      send_data(0);
+//      break;
+//
+//  }
 
 }
 

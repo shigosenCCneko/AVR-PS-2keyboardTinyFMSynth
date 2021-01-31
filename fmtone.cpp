@@ -145,8 +145,10 @@ FmTone::setup_hardware() {
   TCNT1 = 0;
 
   uint16_t freq;
-  freq = (160000 / PWM_KHZ + 5 ) / 10;  //浮動小数点ライブラリを使いたくない
-//    freq = (200000 / PWM_KHZ + 5 ) / 10;  //浮動小数点ライブラリを使いたくない
+//#define F_CPU 20000000
+  
+  freq = ((F_CPU/100) / PWM_KHZ + 5 ) / 10;  //Arduino Uno 16 MHz  浮動小数点ライブラリを使いたくない
+//    freq = (200000 / PWM_KHZ + 5 ) / 10;  //Atmega328P 20MHZ    浮動小数点ライブラリを使いたくない
   OCR1A = freq;
 
   TCCR1A = (0 << COM1A0);
