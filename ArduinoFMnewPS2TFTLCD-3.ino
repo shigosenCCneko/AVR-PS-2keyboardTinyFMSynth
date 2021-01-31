@@ -1,3 +1,15 @@
+/*
+ *  AVR Tiny FM Synthsizer
+ *  
+ *     Keiji Katahira  2021/1/31 
+ *      ATmega328P 20MHz
+ *  
+ *  CC BY 4.0
+ *  Licensed under a Creative Commons Attribution 4.0 International license: 
+ *  http://creativecommons.org/licenses/by/4.0/
+ */
+
+
 
 #include "FMTONE.h"
 #include "display.h"
@@ -6,15 +18,7 @@
 #include <avr/pgmspace.h>
 
 
-
 #include <SPI.h>
-
-
-
-
-
-
-
 
 
 
