@@ -368,6 +368,7 @@ void loop() {
                         if (ex_mode == 1) {
                           change_wave(prg_no, selectedOp, -1);
                           drawEnvelope(selectedOp, WHITE);
+                          drawOperatorWave(selectedOp);
                         }
                         break;
                       case 18:  //PgUp
@@ -379,6 +380,7 @@ void loop() {
                         break;
                       case 19:    //F9
                         change_rel(prg_no, selectedOp, 1);
+                        drawEnvelope(selectedOp, WHITE)
                         break;
                       case 20:    //f10
                         change_rel(prg_no, selectedOp, -1);
