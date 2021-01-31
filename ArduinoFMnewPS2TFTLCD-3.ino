@@ -1,13 +1,13 @@
 /*
- *  AVR Tiny FM Synthsizer
- *  
- *     Keiji Katahira  2021/1/31 
- *      ATmega328P 20MHz
- *  
- *  CC BY 4.0
- *  Licensed under a Creative Commons Attribution 4.0 International license: 
- *  http://creativecommons.org/licenses/by/4.0/
- */
+    AVR Tiny FM Synthsizer
+
+       Keiji Katahira  2021/1/31
+        ATmega328P 20MHz
+
+    CC BY 4.0
+    Licensed under a Creative Commons Attribution 4.0 International license:
+    http://creativecommons.org/licenses/by/4.0/
+*/
 
 
 
@@ -277,17 +277,25 @@ void loop() {
 
 
                 if (mode == 0) {
+
+                  TIMSK1 = 0;
                   ClearDisplay();
                   DispForm();
+                  TIMSK1 |= (1 << OCIE1A);    //Timer1 enable
                 }
                 if (mode == 1) {
 
+                  TIMSK1 = 0;
                   //DispForm();
                   selectOp(selectedOp);
+                  TIMSK1 |= (1 << OCIE1A);    //Timer1 enable
                 }
                 if ( mode == 2) {
+
+                  TIMSK1 = 0;
                   ClearDisplay();
                   disp_savemode();
+                  TIMSK1 |= (1 << OCIE1A);    //Timer1 enable
                 }
 
 
@@ -424,15 +432,15 @@ void loop() {
                         break;
                       case 13://Del
                         chord_velo = 40;
-                       // led_level(0);
+                        // led_level(0);
                         break;
                       case 14:  //End
                         chord_velo = 60;
-                       // led_level(1);
+                        // led_level(1);
                         break;
                       case 15:  //PgDn
                         chord_velo = 80;
-                       // led_level(2);
+                        // led_level(2);
                         break;
                       case 16:  //Insert
                         chord_offs = -12;
@@ -622,30 +630,30 @@ void led_level(uint8_t level) {
   level &= 3;
 
 
-//  switch (level) {
-//    case 0:
-//      send_data(0xed);
-//      send_data(0);
-//      break;
-//    case 1:
-//      send_data(0xed);
-//      send_data(0x01);
-//      break;
-//    case 2:
-//      send_data(0xed);
-//      send_data(0x05);
-//      break;
-//    case 3:
-//      send_data(0xed);
-//      send_data(0x07);
-//      break;
-//
-//    default:
-//      send_data(0xed);
-//      send_data(0);
-//      break;
-//
-//  }
+  //  switch (level) {
+  //    case 0:
+  //      send_data(0xed);
+  //      send_data(0);
+  //      break;
+  //    case 1:
+  //      send_data(0xed);
+  //      send_data(0x01);
+  //      break;
+  //    case 2:
+  //      send_data(0xed);
+  //      send_data(0x05);
+  //      break;
+  //    case 3:
+  //      send_data(0xed);
+  //      send_data(0x07);
+  //      break;
+  //
+  //    default:
+  //      send_data(0xed);
+  //      send_data(0);
+  //      break;
+  //
+  //  }
 
 }
 
